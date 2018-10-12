@@ -1,3 +1,29 @@
+
+function display(){
+    console.log(this); // 'this' will point to the global object
+   }
+   display(); 
+   /* This is a plain function call. The value of this inside the display() method in this case is the window — or the global — object in non-strict mode. In strict mode, the this value is undefined.
+ */
+
+   
+/* When we call a function in this manner — preceded by a context object — the this value inside display() is set to obj.
+
+But when we assign this function reference to some other variable and invoke the function using this new function reference, we get a different value of this inside display() .
+ */
+
+
+
+var name = "uh oh! global";
+var outerDisplay = obj.display;
+outerDisplay(); // uh oh! global
+
+
+
+/* In the above example, when we call outerDisplay(), we don’t specify a context object. It is a plain function call without an owner object. In this case, the value of this inside display() falls back to default binding. It points to the global object or undefined if the function being invoked uses strict mode */
+
+
+
 var person = {
     firstName: "Penelope",
     lastName: "Barrymore",
